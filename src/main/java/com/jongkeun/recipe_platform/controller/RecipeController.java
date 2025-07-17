@@ -40,6 +40,13 @@ public class RecipeController {
         return recipeService.create(dto);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        recipeService.delete(id);
+
+        return ResponseEntity.noContent().build();
+    }
+
     @PostMapping("/{id}/ingredients/add")
     public ResponseEntity<Void> addIngredient(
             @PathVariable Long id,
