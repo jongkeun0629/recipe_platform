@@ -49,4 +49,14 @@ public class RecipeController {
 
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/{id}/ingredients/{ingredientId}/remove")
+    public ResponseEntity<Void> removeIngredient(
+            @PathVariable Long id,
+            @PathVariable Long ingredientId
+    ) {
+        recipeService.removeIngredient(id, ingredientId);
+
+        return ResponseEntity.noContent().build();
+    }
 }

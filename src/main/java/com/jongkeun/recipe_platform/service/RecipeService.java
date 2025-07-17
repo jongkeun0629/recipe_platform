@@ -78,4 +78,9 @@ public class RecipeService {
 
         recipeRepository.save(recipe);
     }
+
+    public void removeIngredient(Long recipeId, Long ingredientId){
+        RecipeIngredientId id = new RecipeIngredientId(recipeId, ingredientId);
+        recipeIngredientRepository.deleteById(id);
+    }
 }
