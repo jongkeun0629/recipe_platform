@@ -50,6 +50,11 @@ public class RecipeController {
         return ResponseEntity.ok().build();
     }
 
+    @PutMapping("/{id}")
+    public RecipeResponseDto update(@PathVariable Long id, @Validated @RequestBody RecipeDto dto){
+        return recipeService.update(id, dto);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         recipeService.delete(id);
